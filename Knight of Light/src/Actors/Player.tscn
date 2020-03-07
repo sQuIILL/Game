@@ -1,0 +1,42 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://src/Actors/Player.gd" type="Script" id=1]
+[ext_resource path="res://Free Assets/Animation/Idle/0/adventurer-idle-01.png" type="Texture" id=2]
+[ext_resource path="res://Free Assets/Animation/Idle/0/adventurer-idle-02.png" type="Texture" id=3]
+[ext_resource path="res://Free Assets/Animation/Idle/0/adventurer-idle-03.png" type="Texture" id=4]
+[ext_resource path="res://Free Assets/Animation/Idle/0/adventurer-idle-00.png" type="Texture" id=5]
+[ext_resource path="res://Free Assets/Animation/Running/adventurer-run-01.png" type="Texture" id=6]
+[ext_resource path="res://Free Assets/Animation/Running/adventurer-run-04.png" type="Texture" id=7]
+[ext_resource path="res://Free Assets/Animation/Running/adventurer-run-05.png" type="Texture" id=8]
+[ext_resource path="res://Free Assets/Animation/Running/adventurer-run-03.png" type="Texture" id=9]
+[ext_resource path="res://Free Assets/Animation/Running/adventurer-run-02.png" type="Texture" id=10]
+[ext_resource path="res://Free Assets/Animation/Running/adventurer-run-00.png" type="Texture" id=11]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 11 ), ExtResource( 6 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "Running",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "Idle0",
+"speed": 5.5
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 6.1701, 14.3275 )
+
+[node name="Player" type="KinematicBody2D"]
+script = ExtResource( 1 )
+
+[node name="sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "Idle0"
+frame = 1
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 3.18199 )
+shape = SubResource( 2 )
